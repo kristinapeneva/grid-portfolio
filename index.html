@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Grid Portfolio</title>
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="2000">
+        <h5>Photography <span>Portfolio</span></h5>
+    </header>
+    <section class="gallery">
+        <figure class="featured" data-aos="fade-up" data-aos-duration="800">
+            <img src="/portfolio/project-3/images/1.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800">
+            <img src="/portfolio/project-3/images/2.jpg" alt="">
+        </figure>
+        <figure class="text" data-aos="zoom-in" data-aos-duration="800">
+            <h3 class="first-text">J.K.P.</h3>
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/3.jpg" alt="">
+        </figure>
+        <figure class="featured" data-aos="fade-up" data-aos-duration="800" data-aos-offset="800">
+            <img src="/portfolio/project-3/images/4.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/5.jpg" alt="">
+        </figure>
+        <figure class="tall" data-aos="fade-up" data-aos-duration="800" data-aos-offset="800">
+            <img src="/portfolio/project-3/images/6.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="650">
+            <img src="/portfolio/project-3/images/7.jpg" alt="">
+        </figure>
+        <figure class="text" data-aos="zoom-in" data-aos-duration="800" data-aos-offset="500">
+            <h3 class="second-text">Based in<br>Germany</h3>
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="800">
+            <img src="/portfolio/project-3/images/8.jpg" alt="">
+        </figure>
+        <figure class="featured" data-aos="fade-up" data-aos-duration="800" data-aos-offset="650">
+            <img src="/portfolio/project-3/images/9.jpg" alt="">
+        </figure>
+        <figure class="tall" data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/10.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="800">
+            <img src="/portfolio/project-3/images/11.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="650">
+            <img src="/portfolio/project-3/images/12.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/13.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/14.jpg" alt="">
+        </figure>
+        <figure data-aos="fade-up" data-aos-duration="800" data-aos-offset="500">
+            <img src="/portfolio/project-3/images/15.jpg" alt="">
+        </figure>
+    </section>
+    <footer>
+        <h6>Source: https://unsplash.com/</h6>
+    </footer>
+
+    <div class="modal" id="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-body">
+            <div class="modal-photo" id="modal-photo"></div>
+        <div class="modal-close" id="close"></div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        var open = document.getElementsByTagName("img");
+        var openImg = [];
+        for(var i = 0; i < open.length; i++){
+            openImg.push(open[i]);
+            console.log(openImg);
+        }
+        
+        var close = document.getElementById("close");
+        var modal = document.getElementById("modal");
+        var modal_photo = document.getElementById("modal-photo");
+        for(let j = 0; j < openImg.length; j++) {
+            openImg[j].addEventListener("click", function (event){
+                event.preventDefault();
+                modal.style.display = "block";
+                modal_photo.style.backgroundImage = "url('images/" + (j + 1) + ".jpg')";
+                document.body.style.overflow = "hidden"; 
+            });
+        }
+        close.addEventListener("click", function(event) {
+            event.preventDefault();
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        });
+
+    </script>
+</body>
+</html>
